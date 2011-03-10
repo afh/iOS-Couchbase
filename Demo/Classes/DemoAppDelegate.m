@@ -27,11 +27,11 @@
 @synthesize window;
 @synthesize navigationController;
 
--(void)couchIsReady
+-(void)couchbaseDidStart
 {
 	NSLog(@"CouchDB is Ready, go!");
 	// Tell RootViewController to stop spinning
-	[self.navigationController.visibleViewController couchIsReady];
+	[self.navigationController.visibleViewController couchbaseDidStart];
 }
 
 #pragma mark -
@@ -39,7 +39,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
-	[Couchbase startCouch:self];
+	[Couchbase startCouchbase:self];
 
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.
