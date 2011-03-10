@@ -30,6 +30,6 @@
 @property(nonatomic, retain)UIBarButtonItem *activityButtonItem;
 
 -(void)loadItemsIntoView;
--(void)couchbaseDidStart;
+-(void)couchIsReady;
 
 @end

@@ -33,7 +33,7 @@
 #pragma mark View lifecycle
 
 
--(void)couchbaseDidStart
+-(void)couchIsReady
 {
 	[self loadItemsIntoView];
 	

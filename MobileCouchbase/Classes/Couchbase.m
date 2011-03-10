@@ -47,7 +47,7 @@ void* erlang_thread(void* data) {
 
 @implementation Couchbase
 
-+ (void)startCouchbase:(id<CouchbaseDelegate>)delegate {
++ (int)startCouch:(id<CouchbaseDelegate>)delegate {
 	NSLog(@"Starting the Couch");
 	NSBundle* mainBundle;
 	mainBundle = [NSBundle mainBundle];
@@ -110,6 +110,8 @@ void* erlang_thread(void* data) {
 													 selector:@selector(waitAndNotifyMainThread:)
 													   object:delegate];
 	[waiterThread start];
+	
+	return 5984;
 }
 
 + (int)connectToHost:(char*)host port:(int) port {
@@ -134,7 +136,7 @@ void* erlang_thread(void* data) {
 + (void)waitAndNotifyMainThread:(NSObject*)delegate
 {
 	[self waitForCouchDB];
-	[delegate performSelectorOnMainThread:@selector(couchbaseDidStart)
+	[delegate performSelectorOnMainThread:@selector(couchIsReady)
 							   withObject:nil
 							waitUntilDone:NO];
 }

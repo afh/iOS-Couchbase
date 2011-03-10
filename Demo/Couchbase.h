@@ -22,12 +22,13 @@
 
 @protocol CouchbaseDelegate
 @required
--(void)couchbaseDidStart;
+-(void)couchIsReady;
 @end
 
 @interface Couchbase : NSObject {
+
 }
 
-+ (void)startCouchbase:(id<CouchbaseDelegate>)delegate;
++ (int)startCouch:(id<CouchbaseDelegate>)delegate;
 
 @end
